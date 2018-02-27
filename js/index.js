@@ -7,15 +7,28 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import AboutContainer from "./scenes/About";
-import { NavigationProvider, StackNavigation } from "@expo/ex-navigation";
+import {
+  NavigationProvider,
+  StackNavigation,
+  NavigationContext
+} from "@expo/ex-navigation";
+import { Provider } from "react-redux";
 import { Router } from "./navigation/routes.js";
+import Store from "./redux/store";
+
+const navigationContext = new NavigationContext({
+  router: Router,
+  store: Store
+});
 
 export default class App extends Component {
   render() {
     return (
-      <NavigationProvider router={Router}>
-        <StackNavigation initialRoute={Router.getRoute("about")} />
-      </NavigationProvider>
+      <Provider store={Store}>
+        <NavigationProvider context={navigationContext}>
+          <StackNavigation initialRoute={Router.getRoute("about")} />
+        </NavigationProvider>
+      </Provider>
     );
     //return <AboutContainer />;
   }
