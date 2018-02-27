@@ -13,12 +13,17 @@ class AboutContainer extends Component {
       loading: true
     };
   }
+  static route = {
+    navigationBar: {
+      title: "About"
+    }
+  };
 
   componentDidMount() {
     fetch("https://r10app-95fea.firebaseio.com/code_of_conduct.json")
       .then(res => res.json())
       .then(data => this.setState({ data, loading: false }))
-      .catch(err => console.log(err));
+      .catch(err => console.log(err)); //TODO: pass error to UI
   }
 
   render() {
