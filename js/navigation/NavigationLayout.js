@@ -7,6 +7,8 @@ import {
 } from "@expo/ex-navigation";
 import { Router } from "./routes";
 import { colors } from "../config/styles";
+import Icon from "react-native-vector-icons/Ionicons";
+
 const { Black, White, MediumGrey } = colors;
 
 class NavigationLayout extends Component {
@@ -15,10 +17,19 @@ class NavigationLayout extends Component {
       <Text style={{ color: isSelected ? White : MediumGrey }}>{title}</Text>
     );
   };
+  renderIcon = (isSelected, iconName) => {
+    return (
+      <Icon
+        active
+        name={iconName}
+        size={16}
+        color={isSelected ? White : MediumGrey}
+      />
+    );
+  };
 
   render() {
     return (
-      // PUT YOUR TAB BAR /TAB ITEMS /STACK NAVS HERE
       <TabNavigation
         id="main"
         navigatorUID="main"
@@ -29,9 +40,7 @@ class NavigationLayout extends Component {
           id="about"
           title="About"
           renderTitle={this.renderTitle}
-          // renderIcon={isSelected => (
-          //   <Image source={require("../assets/images/map_pin.png")} />
-          // )}
+          renderIcon={isSelected => this.renderIcon(isSelected, "ios-book")}
         >
           <StackNavigation
             id="about"
@@ -44,10 +53,7 @@ class NavigationLayout extends Component {
           id="schedule"
           title="Schedule"
           renderTitle={this.renderTitle}
-          //selectedStyle={styles.selectedTab}
-          // renderIcon={isSelected => (
-          //   <Image source={require("../assets/images/map_pin.png")} />
-          // )}
+          renderIcon={isSelected => this.renderIcon(isSelected, "ios-calendar")}
         >
           <StackNavigation
             id="schedule"
@@ -59,10 +65,7 @@ class NavigationLayout extends Component {
           id="faves"
           title="Faves"
           renderTitle={this.renderTitle}
-          //selectedStyle={styles.selectedTab}
-          // renderIcon={isSelected => (
-          //   <Image source={require("../assets/images/map_pin.png")} />
-          // )}
+          renderIcon={isSelected => this.renderIcon(isSelected, "ios-heart")}
         >
           <StackNavigation
             id="faves"
