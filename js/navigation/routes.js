@@ -1,5 +1,5 @@
 import AboutContainer from "../scenes/About/AboutContainer";
-// import FavesContainer from "../scenes/About/FavesContainer";
+import FavesContainer from "../scenes/Faves/FavesContainer";
 import ScheduleContainer from "../scenes/Schedule/ScheduleContainer";
 // import SessionContainer from "../scenes/About/SessionContainer";
 // import SpeakerContainer from "../scenes/About/SpeakerContainer";
@@ -13,7 +13,7 @@ import { createRouter } from "@expo/ex-navigation";
 export const Router = createRouter(() => ({
   about: () => AboutContainer,
   layout: () => NavigationLayout,
-  // faves: () => FavesContainer,
+  faves: () => FavesContainer,
   schedule: () => ScheduleContainer
   // session: () => SessionContainer,
   // speaker: () => SpeakerContainer
