@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../config/styles";
+import { colors, typography } from "../../config/styles";
 
 export const styles = StyleSheet.create({
   loader: {
@@ -18,12 +18,12 @@ export const styles = StyleSheet.create({
     borderBottomColor: colors.LightGrey,
     borderBottomWidth: 1
   },
-  paragraphText: { margin: 5, fontFamily: "Montserrat-Light" },
+  paragraphText: { margin: 5, fontFamily: typography.fontMainLight },
   paragraphHeader: {
     fontSize: 20,
     marginBottom: 10,
     marginTop: 20,
-    fontFamily: "Montserrat-Regular",
+    fontFamily: typography.fontMain,
     fontSize: 15
   },
   contentContainer: {
@@ -34,6 +34,6 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     color: colors.Purple,
     fontSize: 16,
-    fontFamily: "Montserrat-Regular"
+    fontFamily: typography.fontMain
   }
 });

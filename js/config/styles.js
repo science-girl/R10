@@ -11,3 +11,8 @@ export const colors = {
   TransluscentGrey: "rgba(0,0,0,0.4)",
   TransluscentWhite: "rgba(255,255,255,0.8)"
 };
+
+export const typography = {
+  fontMainLight: "Montserrat-Light",
+  fontMain: "Montserrat-Regular"
+};
