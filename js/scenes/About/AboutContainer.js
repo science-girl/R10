@@ -33,7 +33,7 @@ class AboutContainer extends Component {
           <Image source={logo} style={styles.headerImage} />
         </View>
         <View>
-          <Text>
+          <Text style={styles.paragraphText}>
             R10 is a conference that focuses on just about any topic related to
             dev.{" "}
           </Text>
@@ -42,7 +42,7 @@ class AboutContainer extends Component {
           <Text style={styles.paragraphHeader}>Date & Venue</Text>
         </View>
         <View>
-          <Text>
+          <Text style={styles.paragraphText}>
             The R10 conference will take place on Thursday, June 27, 2017 in
             Vancouver, BC.
           </Text>
@@ -55,6 +55,9 @@ class AboutContainer extends Component {
             <About key={i} header={text.title} description={text.description} />
           );
         })}
+        <View>
+          <Text style={styles.paragraphText}>&copy;RED Academy 2018</Text>
+        </View>
       </ScrollView>
     );
   }

@@ -7,7 +7,7 @@ const About = ({ header, description }) => {
   return (
     <View style={styles.contentContainer}>
       <Text style={styles.contentHeader}>{header}</Text>
-      <Text>{description}</Text>
+      <Text style={styles.paragraphText}>{description}</Text>
     </View>
   );
 };
