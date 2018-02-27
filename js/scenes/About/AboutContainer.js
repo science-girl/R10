@@ -4,13 +4,14 @@ import { ScrollView, View, Image, Text, ActivityIndicator } from "react-native";
 import About from "./About";
 import logo from "../../assets/images/r10_logo.png";
 import { styles } from "./styles";
+import { connect } from "react-redux";
+import { fetchCodeOfConduct } from "../../redux/modules/about";
 
 class AboutContainer extends Component {
   constructor() {
     super();
     this.state = {
-      data: [],
-      loading: true
+      //data: []
     };
   }
   static route = {
@@ -20,14 +21,11 @@ class AboutContainer extends Component {
   };
 
   componentDidMount() {
-    fetch("https://r10app-95fea.firebaseio.com/code_of_conduct.json")
-      .then(res => res.json())
-      .then(data => this.setState({ data, loading: false }))
-      .catch(err => console.log(err)); //TODO: pass error to UI
+    this.props.dispatch(fetchCodeOfConduct());
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, data } = this.props;
     return loading ? (
       <View style={styles.loader}>
         <ActivityIndicator />
@@ -48,14 +46,14 @@ class AboutContainer extends Component {
         </View>
         <View>
           <Text style={styles.paragraphText}>
-            The R10 conference will take place on Thursday, June 27, 2017 in
+            The R10 conference will take place on Thursday, June 27, 2018 in
             Vancouver, BC.
           </Text>
         </View>
         <View>
           <Text style={styles.paragraphHeader}>Code of Conduct</Text>
         </View>
-        {this.state.data.map((text, i) => {
+        {data.map((text, i) => {
           return (
             <About key={i} header={text.title} description={text.description} />
           );
@@ -68,4 +66,10 @@ class AboutContainer extends Component {
   }
 }
 
-export default AboutContainer;
+const mapStateToProps = state => ({
+  // convert states into props to pass in react class
+  loading: state.about.loading,
+  data: state.about.data
+});
+
+export default connect(mapStateToProps)(AboutContainer);
