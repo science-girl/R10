@@ -25,5 +25,6 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontMain,
     fontSize: 13,
     padding: 5
-  }
+  },
+  iconView: { flexDirection: "row", justifyContent: "space-between" }
 });
