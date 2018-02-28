@@ -8,19 +8,18 @@ import {
 import { Router } from "./routes";
 import { colors, typography } from "../config/styles";
 import Icon from "react-native-vector-icons/Ionicons";
+import { styles } from "./styles";
 
 const { Black, White, MediumGrey } = colors;
 
 class NavigationLayout extends Component {
-  // TODO: create a stylesheet for the styles
   renderTitle = (isSelected, title) => {
     return (
       <Text
-        style={{
-          fontSize: 10,
-          fontFamily: typography.fontMain,
-          color: isSelected ? White : MediumGrey
-        }}
+        style={[
+          styles.navBarTitles,
+          { color: isSelected ? White : MediumGrey }
+        ]}
       >
         {title}
       </Text>
