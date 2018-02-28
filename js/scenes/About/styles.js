@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   scrollView: {
     margin: 10
   },
-  headerImage: { /*height: 52, width: 213,*/ marginBottom: 20 },
+  headerImage: { marginBottom: 20 },
   headerContainer: {
     justifyContent: "center",
     alignItems: "center",

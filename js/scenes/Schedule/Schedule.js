@@ -2,11 +2,12 @@ import React from "react";
 //import PropTypes from 'proptypes';
 import { Text, View } from "react-native";
 import { styles } from "./styles";
+import EventList from "../../components/EventList";
 
-const Schedule = () => {
+const Schedule = ({ data }) => {
   return (
     <View>
-      <Text>Schedule Page</Text>
+      <EventList data={data} />
     </View>
   );
 };

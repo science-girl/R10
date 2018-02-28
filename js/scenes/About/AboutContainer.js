@@ -6,14 +6,10 @@ import logo from "../../assets/images/r10_logo.png";
 import { styles } from "./styles";
 import { connect } from "react-redux";
 import { fetchCodeOfConduct } from "../../redux/modules/about";
+import Footer from "../../components/Footer";
+import Loader from "../../components/Footer";
 
 class AboutContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      //data: []
-    };
-  }
   static route = {
     navigationBar: {
       title: "About"
@@ -28,7 +24,7 @@ class AboutContainer extends Component {
     const { loading, data } = this.props;
     return loading ? (
       <View style={styles.loader}>
-        <ActivityIndicator />
+        <Loader />
       </View>
     ) : (
       <ScrollView style={styles.scrollView}>
@@ -58,9 +54,7 @@ class AboutContainer extends Component {
             <About key={i} header={text.title} description={text.description} />
           );
         })}
-        <View>
-          <Text style={styles.paragraphText}>&copy;RED Academy 2018</Text>
-        </View>
+        <Footer />
       </ScrollView>
     );
   }
