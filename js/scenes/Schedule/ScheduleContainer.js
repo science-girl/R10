@@ -19,7 +19,7 @@ class ScheduleContainer extends Component {
       title: "Schedule"
     }
   };
-
+  // TODO: create navigationHelpers.js
   goToSession(/*navigatorUID,*/ event) {
     let navigatorUID = "schedule"; //Store.getState().navigation.currentNavigatorUID;
     Store.dispatch(
