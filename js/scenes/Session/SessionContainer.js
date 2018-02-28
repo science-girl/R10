@@ -2,19 +2,17 @@ import React, { Component } from "react";
 import Session from "./Session";
 
 class SessionContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(this.props);
   }
   static route = {
     navigationBar: {
-      title: "Session",
-      title(params) {
-        return `Greeting for ${params}`;
-      }
+      title: "Session"
     }
   };
   render() {
-    return <Session />;
+    return <Session event={this.props.route.params.event} />;
   }
 }
 

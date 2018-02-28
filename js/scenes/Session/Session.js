@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-const Session = () => {
+const Session = ({ event }) => {
   return (
     <View>
-      <Text>session data</Text>
+      <Text>{event.description}</Text>
     </View>
   );
 };

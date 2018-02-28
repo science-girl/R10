@@ -52,7 +52,7 @@ class NavigationLayout extends Component {
         >
           <StackNavigation
             id="about"
-            navigatorUID="home"
+            navigatorUID="about"
             initialRoute={Router.getRoute("about")}
           />
         </TabItem>
