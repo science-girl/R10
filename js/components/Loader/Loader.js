@@ -1,3 +1,6 @@
 import React from "react";
 import { ActivityIndicator } from "react-native";
-export const Footer = () => <ActivityIndicator />;
+
+const Loader = () => <ActivityIndicator />;
+
+export default Loader;

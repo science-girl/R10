@@ -7,7 +7,7 @@ import { styles } from "./styles";
 import { connect } from "react-redux";
 import { fetchCodeOfConduct } from "../../redux/modules/about";
 import Footer from "../../components/Footer";
-import Loader from "../../components/Footer";
+import Loader from "../../components/Loader";
 
 class AboutContainer extends Component {
   static route = {

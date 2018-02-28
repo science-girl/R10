@@ -7,15 +7,13 @@ const EventList = ({ data }) => (
   <SectionList
     sections={data}
     renderItem={({ item }) => (
-      <View>
-        <Text style={styles.paragraphHeader}>{item.title}</Text>
-        <Text>{item.location}</Text>
+      <View style={styles.paragraphView}>
+        <Text style={styles.titleHeader}>{item.title}</Text>
+        <Text style={styles.locationText}>{item.location}</Text>
       </View>
     )}
     renderSectionHeader={({ section }) => (
-      <Text style={{ fontSize: 15, backgroundColor: "coral" }}>
-        {moment(section.title).format("LT")}
-      </Text>
+      <Text style={styles.timeText}>{moment(section.title).format("LT")}</Text>
     )}
     keyExtractor={(item, index) => index}
   />

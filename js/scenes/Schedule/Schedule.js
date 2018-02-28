@@ -6,7 +6,7 @@ import EventList from "../../components/EventList";
 
 const Schedule = ({ data }) => {
   return (
-    <View>
+    <View style={styles.eventContainer}>
       <EventList data={data} />
     </View>
   );

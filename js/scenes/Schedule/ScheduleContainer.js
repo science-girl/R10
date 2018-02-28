@@ -5,6 +5,7 @@ import Schedule from "./Schedule";
 import { fetchSchedule } from "../../redux/modules/schedule";
 import { connect } from "react-redux";
 import { styles } from "./styles";
+import Loader from "../../components/Loader";
 
 class ScheduleContainer extends Component {
   static route = {
@@ -19,8 +20,14 @@ class ScheduleContainer extends Component {
 
   render() {
     const { loading, data } = this.props;
-    console.log(data);
-    return <Schedule data={data} />;
+
+    return loading ? (
+      <View style={styles.loader}>
+        <Loader />
+      </View>
+    ) : (
+      <Schedule data={data} />
+    );
   }
 }
 
