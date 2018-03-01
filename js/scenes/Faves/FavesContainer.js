@@ -18,7 +18,8 @@ class FavesContainer extends Component {
     }
   };
   componentDidMount() {
-    this.props.dispatch(fetchFaves());
+    this.props.dispatch(fetchFaves(this.props.data));
+    console.log(this.props.faves);
   }
 
   render() {
@@ -31,7 +32,8 @@ class FavesContainer extends Component {
 const mapStateToProps = state => ({
   // convert states into props to pass in react class
   loading: state.faves.loading,
-  faves: state.faves.faves
+  faves: state.faves.faves,
+  data: state.schedule.data
 });
 
 export default connect(mapStateToProps)(FavesContainer);

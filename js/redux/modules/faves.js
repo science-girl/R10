@@ -24,10 +24,11 @@ const getFavesError = error => ({
   payload: error
 });
 
-export const fetchFaves = () => dispatch => {
+export const fetchFaves = data => dispatch => {
   dispatch(getFavesLoading()); // set loading icon before fetching the data
   try {
-    dispatch(getFaves(queryFave()));
+    const faves = dispatch(getFaves(queryFave()));
+    console.log(faves);
   } catch (err) {
     dispatch(getScheduleError(err));
   }

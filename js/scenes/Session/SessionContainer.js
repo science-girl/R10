@@ -10,7 +10,8 @@ class SessionContainer extends Component {
   }
   static route = {
     navigationBar: {
-      title: "Session"
+      title: "Session",
+      tintColor: "black"
     }
   };
   componentDidMount() {

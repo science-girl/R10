@@ -1,4 +1,3 @@
-import { formatSessionData } from "../../lib/helpers";
 const SCHEDULE_URL = "https://r10app-95fea.firebaseio.com/sessions.json";
 const GET_SCHEDULE_LOADING = "GET_SCHEDULE_LOADING";
 const GET_SCHEDULE_SUCCESS = "GET_SCHEDULE_SUCCESS";
@@ -24,7 +23,7 @@ export const fetchSchedule = () => dispatch => {
 
   fetch(SCHEDULE_URL)
     .then(res => res.json())
-    .then(data => dispatch(getSchedule(formatSessionData(data))))
+    .then(data => dispatch(getSchedule(data)))
     .catch(err => dispatch(getScheduleError(err)));
 };
 
