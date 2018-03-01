@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Image, Text, Platform } from "react-native";
+import { Image, Text } from "react-native";
+import { heartIcon, aboutIcon, calendarIcon } from "../lib/platformHelpers";
 import {
   StackNavigation,
   TabNavigation,
@@ -37,11 +38,6 @@ class NavigationLayout extends Component {
   };
 
   render() {
-    const aboutIcon = Platform.OS === "ios" ? "ios-book" : "md-book";
-    const calendarIcon = Platform.OS === "ios" ? "ios-calendar" : "md-calendar";
-    const heartIcon =
-      Platform.OS === "ios" ? "ios-heart-outline" : "md-heart-outline";
-
     return (
       <TabNavigation
         id="main"
