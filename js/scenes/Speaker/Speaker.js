@@ -2,12 +2,19 @@ import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from "./styles";
+import { closeSpeakerScene } from "../../lib/navigationHelpers";
 
 const Speaker = ({ speaker }) => {
   return (
     <View style={styles.eventContainer}>
       <View style={styles.containerHeader}>
-        <Icon active size={40} name="ios-close" color="white" />
+        <Icon
+          active
+          size={40}
+          name="ios-close"
+          color="white"
+          onPress={() => closeSpeakerScene()}
+        />
         <Text style={styles.speakerName}>{speaker.name}</Text>
       </View>
       <View style={styles.body}>
