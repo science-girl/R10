@@ -1,25 +1,42 @@
 import React from "react";
-import { View, Text, SectionList, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  SectionList,
+  TouchableOpacity,
+  Platform
+} from "react-native";
 import moment from "moment";
 import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from "./styles";
 import { colors } from "../../config/styles";
 import { goToSession } from "../../lib/navigationHelpers";
+import { createFave } from "../../config/models";
+import { connect } from "react-redux";
 
 const EventList = ({ data }) => (
   <SectionList
     stickySectionHeadersEnabled={false}
     sections={data}
     renderItem={({ item }) => (
-      <TouchableOpacity onPress={() => goToSession("schedule", item)}>
-        <View style={styles.paragraphView}>
+      <View style={styles.paragraphView}>
+        <TouchableOpacity onPress={() => goToSession("schedule", item)}>
           <Text style={styles.titleHeader}>{item.title}</Text>
-          <View style={styles.iconView}>
-            <Text style={styles.locationText}>{item.location}</Text>
-            <Icon active name="ios-heart" size={16} color={colors.Red} />
-          </View>
+        </TouchableOpacity>
+
+        <View style={styles.iconView}>
+          <Text style={styles.locationText}>{item.location}</Text>
+          <TouchableOpacity onPress={() => createFave(item.session_id)}>
+            <Icon
+              active
+              name={
+                Platform.OS === "ios" ? "ios-heart-outline" : "md-heart-outline"
+              }
+              size={16}
+            />
+          </TouchableOpacity>
         </View>
-      </TouchableOpacity>
+      </View>
     )}
     renderSectionHeader={({ section }) => (
       <Text style={styles.timeText}>

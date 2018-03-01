@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Text } from "react-native";
+import { Image, Text, Platform } from "react-native";
 import {
   StackNavigation,
   TabNavigation,
@@ -37,6 +37,11 @@ class NavigationLayout extends Component {
   };
 
   render() {
+    const aboutIcon = Platform.OS === "ios" ? "ios-book" : "md-book";
+    const calendarIcon = Platform.OS === "ios" ? "ios-calendar" : "md-calendar";
+    const heartIcon =
+      Platform.OS === "ios" ? "ios-heart-outline" : "md-heart-outline";
+
     return (
       <TabNavigation
         id="main"
@@ -48,7 +53,7 @@ class NavigationLayout extends Component {
           id="about"
           title="About"
           renderTitle={this.renderTitle}
-          renderIcon={isSelected => this.renderIcon(isSelected, "ios-book")}
+          renderIcon={isSelected => this.renderIcon(isSelected, aboutIcon)}
         >
           <StackNavigation
             id="about"
@@ -61,7 +66,7 @@ class NavigationLayout extends Component {
           id="schedule"
           title="Schedule"
           renderTitle={this.renderTitle}
-          renderIcon={isSelected => this.renderIcon(isSelected, "ios-calendar")}
+          renderIcon={isSelected => this.renderIcon(isSelected, calendarIcon)}
         >
           <StackNavigation
             id="schedule"
@@ -73,7 +78,7 @@ class NavigationLayout extends Component {
           id="faves"
           title="Faves"
           renderTitle={this.renderTitle}
-          renderIcon={isSelected => this.renderIcon(isSelected, "ios-heart")}
+          renderIcon={isSelected => this.renderIcon(isSelected, heartIcon)}
         >
           <StackNavigation
             id="faves"

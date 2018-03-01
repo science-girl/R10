@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Platform } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from "./styles";
 import { closeSpeakerScene } from "../../lib/navigationHelpers";
@@ -11,7 +11,7 @@ const Speaker = ({ speaker }) => {
         <Icon
           active
           size={40}
-          name="ios-close"
+          name={Platform.OS === "ios" ? "ios-close" : "md-close"}
           color="white"
           onPress={() => closeSpeakerScene()}
         />

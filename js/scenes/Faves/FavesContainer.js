@@ -4,6 +4,8 @@ import { ScrollView, View, Image, Text, ActivityIndicator } from "react-native";
 import Faves from "./Faves";
 import logo from "../../assets/images/r10_logo.png";
 import { styles } from "./styles";
+import { fetchFaves } from "../../redux/modules/faves";
+import { connect } from "react-redux";
 
 class FavesContainer extends Component {
   constructor() {
@@ -15,10 +17,21 @@ class FavesContainer extends Component {
       title: "Faves"
     }
   };
+  componentDidMount() {
+    this.props.dispatch(fetchFaves());
+  }
 
   render() {
-    return <Text>Faves </Text>;
+    const { faves } = this.props;
+
+    return <Faves faves={faves} />;
   }
 }
 
-export default FavesContainer;
+const mapStateToProps = state => ({
+  // convert states into props to pass in react class
+  loading: state.faves.loading,
+  faves: state.faves.faves
+});
+
+export default connect(mapStateToProps)(FavesContainer);

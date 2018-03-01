@@ -10,6 +10,7 @@ const FaveSchema = {
 const realm = new Realm({ schema: [FaveSchema] });
 
 export const queryFave = () => {
+  console.log(realm.path);
   return realm.objects("Fave");
 };
 
