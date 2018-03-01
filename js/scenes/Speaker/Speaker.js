@@ -1,10 +1,18 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+import { styles } from "./styles";
 
-const Speaker = () => {
+const Speaker = ({ speaker }) => {
   return (
-    <View>
-      <Text>speak</Text>
+    <View style={styles.eventContainer}>
+      <View style={styles.containerHeader}>
+        <Icon active size={40} name="ios-close" color="white" />
+        <Text style={styles.speakerName}>{speaker.name}</Text>
+      </View>
+      <View style={styles.body}>
+        <Text>{speaker.bio}</Text>
+      </View>
     </View>
   );
 };

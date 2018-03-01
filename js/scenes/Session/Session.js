@@ -1,12 +1,16 @@
 import React from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import { goToSpeaker } from "../../lib/navigationHelpers";
-const Session = ({ event }) => {
+const Session = ({ event, speaker }) => {
   return (
     <View>
       <Text>{event.description}</Text>
-      <TouchableOpacity onPress={() => goToSpeaker(event.speaker)}>
-        <Text>{event.speaker}</Text>
+      <TouchableOpacity onPress={() => goToSpeaker(speaker)}>
+        <Image
+          source={{ url: speaker.image }}
+          style={{ height: 50, width: 50, borderRadius: 25 }}
+        />
+        <Text>{speaker.name}</Text>
       </TouchableOpacity>
     </View>
   );

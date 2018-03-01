@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Session from "./Session";
+import { connect } from "react-redux";
+import { fetchSpeaker } from "../../redux/modules/speaker";
 
 class SessionContainer extends Component {
   constructor(props) {
@@ -11,9 +13,20 @@ class SessionContainer extends Component {
       title: "Session"
     }
   };
+  componentDidMount() {
+    this.props.dispatch(fetchSpeaker(this.props.route.params.event.speaker));
+  }
   render() {
-    return <Session event={this.props.route.params.event} />;
+    const { loading, data } = this.props;
+    console.log(data);
+    return <Session event={this.props.route.params.event} speaker={data} />;
   }
 }
 
-export default SessionContainer;
+const mapStateToProps = state => ({
+  // convert states into props to pass in react class
+  loading: state.speaker.loading,
+  data: state.speaker.data
+});
+
+export default connect(mapStateToProps)(SessionContainer);

@@ -7,7 +7,6 @@ import { colors } from "../../config/styles";
 import { goToSession } from "../../lib/navigationHelpers";
 
 const EventList = ({ data }) => (
-  // TODO: modularize SectionList into Item and Header components etc
   <SectionList
     stickySectionHeadersEnabled={false}
     sections={data}
