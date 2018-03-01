@@ -22,7 +22,7 @@ class ScheduleContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchSchedule());
-    this.props.dispatch(fetchFaves());
+    //this.props.dispatch(fetchFaves());
   }
 
   render() {

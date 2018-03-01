@@ -3,6 +3,7 @@ import { ScrollView, View, Image, Text, ActivityIndicator } from "react-native";
 //TODO: import PropTypes from 'prop-types';
 import Faves from "./Faves";
 import logo from "../../assets/images/r10_logo.png";
+import { formatSessionData } from "../../lib/helpers";
 import { styles } from "./styles";
 import { fetchFaves } from "../../redux/modules/faves";
 import { connect } from "react-redux";
@@ -14,18 +15,26 @@ class FavesContainer extends Component {
   }
   static route = {
     navigationBar: {
-      title: "Faves"
+      title: "Faves",
+      tintColor: "black"
     }
   };
   componentDidMount() {
     this.props.dispatch(fetchFaves(this.props.data));
-    console.log(this.props.faves);
+  }
+
+  filterFaves(faves, data) {
+    return data.filter(event => faves.includes(event.session_id));
   }
 
   render() {
-    const { faves } = this.props;
+    const { faves, data } = this.props;
+    const arrayOfFaves = Object.values(faves);
+    const filteredFaves = formatSessionData(
+      this.filterFaves(arrayOfFaves, data)
+    );
 
-    return <Faves faves={faves} />;
+    return <Faves faves={filteredFaves} />;
   }
 }
 

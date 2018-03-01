@@ -12,9 +12,8 @@ import { styles } from "./styles";
 import { colors } from "../../config/styles";
 import { goToSession } from "../../lib/navigationHelpers";
 import { createFave } from "../../config/models";
-import { connect } from "react-redux";
 
-const EventList = ({ data }) => (
+const EventList = ({ data, faves }) => (
   <SectionList
     stickySectionHeadersEnabled={false}
     sections={data}
@@ -33,6 +32,7 @@ const EventList = ({ data }) => (
                 Platform.OS === "ios" ? "ios-heart-outline" : "md-heart-outline"
               }
               size={16}
+              color={colors.Red}
             />
           </TouchableOpacity>
         </View>
