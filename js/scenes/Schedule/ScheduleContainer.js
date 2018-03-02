@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ScrollView, View, Image, Text, ActivityIndicator } from "react-native";
 //TODO: import PropTypes from 'prop-types';
 import Schedule from "./Schedule";
-import { formatSessionData } from "../../lib/helpers";
+import { formatSessionData, formatAndFilterFaves } from "../../lib/helpers";
 import { fetchSchedule } from "../../redux/modules/schedule";
 import { fetchFaves } from "../../redux/modules/faves";
 import { connect } from "react-redux";
@@ -22,7 +22,7 @@ class ScheduleContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(fetchSchedule());
-    //this.props.dispatch(fetchFaves());
+    this.props.dispatch(fetchFaves());
   }
 
   render() {

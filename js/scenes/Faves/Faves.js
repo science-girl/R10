@@ -4,10 +4,10 @@ import EventList from "../../components/EventList";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 
-const Faves = ({ faves }) => {
+const Faves = ({ data, faves }) => {
   return (
     <View>
-      <EventList data={faves} />
+      <EventList faves={faves} data={data} />
     </View>
   );
 };

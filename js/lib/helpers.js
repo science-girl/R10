@@ -16,3 +16,15 @@ export const formatSessionData = sessions => {
     }, [])
     .sort((a, b) => a.title - b.title);
 };
+
+function filterFaves(faves, data) {
+  return data.filter(event => faves.includes(event.session_id));
+}
+
+// Helper to filter and format Faves
+export const formatAndFilterFaves = (faves, data) => {
+  const arrayOfFaves = Object.values(faves);
+  const filteredFaves = formatSessionData(filterFaves(arrayOfFaves, data));
+  console.log(filteredFaves);
+  return filteredFaves;
+};

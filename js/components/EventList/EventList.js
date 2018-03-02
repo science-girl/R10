@@ -25,15 +25,16 @@ const EventList = ({ data, faves }) => (
 
         <View style={styles.iconView}>
           <Text style={styles.locationText}>{item.location}</Text>
+          <Text style={styles.locationText}>{}</Text>
           <TouchableOpacity onPress={() => createFave(item.session_id)}>
-            <Icon
-              active
-              name={
-                Platform.OS === "ios" ? "ios-heart-outline" : "md-heart-outline"
-              }
-              size={16}
-              color={colors.Red}
-            />
+            {faves.includes(item.session_id) && (
+              <Icon
+                active
+                name={Platform.OS === "ios" ? "ios-heart" : "md-heart"}
+                size={16}
+                color={colors.Red}
+              />
+            )}
           </TouchableOpacity>
         </View>
       </View>

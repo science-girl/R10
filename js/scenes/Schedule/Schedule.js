@@ -5,10 +5,10 @@ import { styles } from "./styles";
 import EventList from "../../components/EventList";
 import Icon from "react-native-vector-icons/Ionicons";
 
-const Schedule = ({ data }) => {
+const Schedule = ({ data, faves }) => {
   return (
     <View style={styles.eventContainer}>
-      <EventList data={data} />
+      <EventList data={data} faves={faves} />
     </View>
   );
 };
