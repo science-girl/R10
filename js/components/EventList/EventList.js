@@ -19,23 +19,20 @@ const EventList = ({ data, faves }) => (
     sections={data}
     renderItem={({ item }) => (
       <View style={styles.paragraphView}>
-        <TouchableOpacity onPress={() => goToSession("schedule", item)}>
+        <TouchableOpacity onPress={() => goToSession(item)}>
           <Text style={styles.titleHeader}>{item.title}</Text>
         </TouchableOpacity>
-
         <View style={styles.iconView}>
           <Text style={styles.locationText}>{item.location}</Text>
           <Text style={styles.locationText}>{}</Text>
-          <TouchableOpacity onPress={() => createFave(item.session_id)}>
-            {faves.includes(item.session_id) && (
-              <Icon
-                active
-                name={Platform.OS === "ios" ? "ios-heart" : "md-heart"}
-                size={16}
-                color={colors.Red}
-              />
-            )}
-          </TouchableOpacity>
+          {faves.includes(item.session_id) && (
+            <Icon
+              active
+              name={Platform.OS === "ios" ? "ios-heart" : "md-heart"}
+              size={16}
+              color={colors.Red}
+            />
+          )}
         </View>
       </View>
     )}

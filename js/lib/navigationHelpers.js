@@ -4,9 +4,13 @@ import { NavigationActions } from "@expo/ex-navigation";
 
 // @params: string navigatorUID of the current page and object event
 // @returns: none
-export const goToSession = (navigatorUID, event) => {
+export const goToSession = event => {
+  let currentNavigatorUID = Store.getState().navigation.currentNavigatorUID;
   Store.dispatch(
-    NavigationActions.push(navigatorUID, Router.getRoute("session", { event }))
+    NavigationActions.push(
+      currentNavigatorUID,
+      Router.getRoute("session", { event })
+    )
   );
 };
 
