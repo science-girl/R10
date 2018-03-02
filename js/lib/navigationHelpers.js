@@ -27,3 +27,8 @@ export const goToSpeaker = speakerData => {
 export const closeSpeakerScene = () => {
   Store.dispatch(NavigationActions.pop("root"));
 };
+
+export const popScene = () => {
+  let currentNavigatorUID = Store.getState().navigation.currentNavigatorUID;
+  Store.dispatch(NavigationActions.pop(currentNavigatorUID));
+};

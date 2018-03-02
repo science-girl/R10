@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Session from "./Session";
 import Loader from "../../components/Loader";
+import { popScene } from "../../lib/navigationHelpers";
 import { View } from "react-native";
 import { connect } from "react-redux";
 import { fetchSpeaker } from "../../redux/modules/speaker";
@@ -18,6 +19,7 @@ class SessionContainer extends Component {
     }
   };
   componentDidMount() {
+    //popScene();
     this.props.dispatch(fetchSpeaker(this.props.route.params.event.speaker));
   }
   render() {

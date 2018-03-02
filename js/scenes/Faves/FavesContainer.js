@@ -4,6 +4,7 @@ import { ScrollView, View, Image, Text, ActivityIndicator } from "react-native";
 import Faves from "./Faves";
 import logo from "../../assets/images/r10_logo.png";
 import { formatAndFilterFaves } from "../../lib/helpers";
+import { popScene } from "../../lib/navigationHelpers";
 import { styles } from "./styles";
 import { fetchFaves } from "../../redux/modules/faves";
 import { connect } from "react-redux";
@@ -20,6 +21,7 @@ class FavesContainer extends Component {
     }
   };
   componentDidMount() {
+    popScene();
     this.props.dispatch(fetchFaves(this.props.data));
   }
 
