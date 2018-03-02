@@ -25,7 +25,18 @@ export const styles = StyleSheet.create({
   speakerName: {
     padding: 10,
     paddingLeft: 20,
+    color: colors.Grey,
+    fontFamily: typography.fontMain,
+    fontWeight: "bold"
+  },
+  aboutSpeakerText: {
     color: colors.White,
-    fontFamily: typography.fontMain
+    fontFamily: typography.fontMain,
+    marginLeft: 20,
+    marginTop: 10
+  },
+  paragraphText: {
+    fontFamily: typography.fontMainLight,
+    color: colors.MediumGrey
   }
 });

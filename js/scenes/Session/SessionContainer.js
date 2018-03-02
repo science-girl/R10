@@ -19,7 +19,6 @@ class SessionContainer extends Component {
     }
   };
   componentDidMount() {
-    //popScene();
     this.props.dispatch(fetchSpeaker(this.props.route.params.event.speaker));
   }
   render() {

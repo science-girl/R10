@@ -55,11 +55,9 @@ export default (
       };
     }
     case TOGGLE_FAVE: {
-      console.log("toggle", action.session_id, action.onOrOff);
       if (action.onOrOff) createFave(action.session_id);
       else deleteFave(action.session_id);
       const faves = queryFave();
-      console.log(faves);
       return { ...state, loading: false, faves, error: "" };
     }
     case GET_FAVES_SUCCESS: {
