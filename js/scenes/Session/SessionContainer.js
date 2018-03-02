@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Session from "./Session";
+//import { toggleFave } from "../../redux/modules/faves";
 import { connect } from "react-redux";
 import { fetchSpeaker } from "../../redux/modules/speaker";
 
@@ -18,7 +19,7 @@ class SessionContainer extends Component {
     this.props.dispatch(fetchSpeaker(this.props.route.params.event.speaker));
   }
   render() {
-    const { loading, data, faves } = this.props;
+    const { loading, data, faves, toggleFave } = this.props;
     console.log(data);
     return (
       <Session

@@ -1,4 +1,4 @@
-import { queryFave } from "../../config/models";
+import { queryFave, createFave, deleteFave } from "../../config/models";
 
 const GET_FAVES_LOADING = "GET_FAVES_LOADING";
 const GET_FAVES_SUCCESS = "GET_FAVES_SUCCESS";
@@ -14,9 +14,12 @@ const getFaves = faves => ({
   type: GET_FAVES_SUCCESS,
   payload: faves
 });
-
-const toggleFave = session_id => ({
-  type: TOGGLE_FAVE
+// @params: string session_id, bool onOrOff
+// @effects if true, then add; remove if false
+export const toggleFave = (session_id, onOrOff) => ({
+  type: TOGGLE_FAVE,
+  session_id: session_id,
+  onOrOff: onOrOff
 });
 
 const getFavesError = error => ({
@@ -50,6 +53,14 @@ export default (
         loading: true,
         error: "" // if previously there was an error, clear the error
       };
+    }
+    case TOGGLE_FAVE: {
+      console.log("toggle", action.session_id, action.onOrOff);
+      if (action.onOrOff) createFave(action.session_id);
+      else deleteFave(action.session_id);
+      const faves = queryFave();
+      console.log(faves);
+      return { ...state, loading: false, faves, error: "" };
     }
     case GET_FAVES_SUCCESS: {
       return {
