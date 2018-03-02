@@ -18,16 +18,23 @@ class SessionContainer extends Component {
     this.props.dispatch(fetchSpeaker(this.props.route.params.event.speaker));
   }
   render() {
-    const { loading, data } = this.props;
+    const { loading, data, faves } = this.props;
     console.log(data);
-    return <Session event={this.props.route.params.event} speaker={data} />;
+    return (
+      <Session
+        event={this.props.route.params.event}
+        speaker={data}
+        faves={faves}
+      />
+    );
   }
 }
 
 const mapStateToProps = state => ({
   // convert states into props to pass in react class
   loading: state.speaker.loading,
-  data: state.speaker.data
+  data: state.speaker.data,
+  faves: state.faves.faves
 });
 
 export default connect(mapStateToProps)(SessionContainer);

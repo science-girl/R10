@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  View,
-  Text,
-  SectionList,
-  TouchableOpacity,
-  Platform
-} from "react-native";
+import { View, Text, SectionList, TouchableOpacity } from "react-native";
 import moment from "moment";
-import Icon from "react-native-vector-icons/Ionicons";
+import FaveIcon from "../../components/FaveIcon";
 import { styles } from "./styles";
 import { colors } from "../../config/styles";
 import { goToSession } from "../../lib/navigationHelpers";
@@ -25,14 +19,7 @@ const EventList = ({ data, faves }) => (
         <View style={styles.iconView}>
           <Text style={styles.locationText}>{item.location}</Text>
           <Text style={styles.locationText}>{}</Text>
-          {faves.includes(item.session_id) && (
-            <Icon
-              active
-              name={Platform.OS === "ios" ? "ios-heart" : "md-heart"}
-              size={16}
-              color={colors.Red}
-            />
-          )}
+          {faves.includes(item.session_id) && <FaveIcon />}
         </View>
       </View>
     )}
