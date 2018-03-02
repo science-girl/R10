@@ -17,9 +17,14 @@ export const goToSession = event => {
 // @params: object speakerData
 // @returns: none
 export const goToSpeaker = speakerData => {
-  Store.dispatch(
-    NavigationActions.push("root", Router.getRoute("speaker", { speakerData }))
-  );
+  if (speakerData && speakerData.length > 0) {
+    Store.dispatch(
+      NavigationActions.push(
+        "root",
+        Router.getRoute("speaker", { speakerData })
+      )
+    );
+  }
 };
 
 // @params: none
