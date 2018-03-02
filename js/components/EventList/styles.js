@@ -16,10 +16,9 @@ export const styles = StyleSheet.create({
     justifyContent: "center"
   },
   titleHeader: {
-    fontSize: 20,
+    fontSize: 15,
     marginBottom: 10,
-    fontFamily: typography.fontMain,
-    fontSize: 15
+    fontFamily: typography.fontMain
   },
   timeText: {
     fontFamily: typography.fontMain,

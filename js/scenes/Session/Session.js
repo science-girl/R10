@@ -1,23 +1,50 @@
 import React from "react";
-import { Text, View, Image, TouchableOpacity, Button } from "react-native";
+import {
+  Text,
+  View,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  Button
+} from "react-native";
 import FaveIcon from "../../components/FaveIcon";
+import moment from "moment";
 import { toggleFave } from "../../redux/modules/faves";
 import { connect } from "react-redux";
 import { goToSpeaker } from "../../lib/navigationHelpers";
+import { styles } from "./styles";
 
 const Session = ({ event, speaker, faves, toggleFave }) => {
   return (
-    <View>
-      <Text>{event.description}</Text>
-      {faves.includes(event.session_id) && <FaveIcon />}
+    <ScrollView>
+      <View style={styles.iconView}>
+        <Text style={styles.locationText}>{event.location}</Text>
+        <View style={styles.icon}>
+          {faves.includes(event.session_id) && <FaveIcon />}
+        </View>
+      </View>
+
+      <Text style={styles.titleHeader}>{event.title}</Text>
+      <Text style={styles.timeText}>
+        {" "}
+        {moment.unix(event.start_time).format("LT")}
+      </Text>
+      <Text style={styles.paragraphText}>{event.description}</Text>
+
       {speaker && (
-        <TouchableOpacity onPress={() => goToSpeaker(speaker)}>
-          <Image
-            source={{ uri: speaker.image }}
-            style={{ height: 100, width: 100, borderRadius: 50 }}
-          />
-          <Text>{speaker && speaker.name}</Text>
-        </TouchableOpacity>
+        <View>
+          <Text style={styles.presentedByText}>Presented by:</Text>
+          <TouchableOpacity
+            style={styles.presentedByView}
+            onPress={() => goToSpeaker(speaker)}
+          >
+            <Image
+              source={{ uri: speaker.image }}
+              style={{ height: 70, width: 70, borderRadius: 35 }}
+            />
+            <Text style={styles.presenterText}>{speaker && speaker.name}</Text>
+          </TouchableOpacity>
+        </View>
       )}
       <View>
         <Button
@@ -27,7 +54,7 @@ const Session = ({ event, speaker, faves, toggleFave }) => {
           }
         />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 const mapStateToProps = state => ({

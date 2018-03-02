@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Session from "./Session";
-//import { toggleFave } from "../../redux/modules/faves";
+import Loader from "../../components/Loader";
+import { View } from "react-native";
 import { connect } from "react-redux";
 import { fetchSpeaker } from "../../redux/modules/speaker";
+import { styles } from "./styles";
 
 class SessionContainer extends Component {
   constructor(props) {
@@ -20,8 +22,11 @@ class SessionContainer extends Component {
   }
   render() {
     const { loading, data, faves, toggleFave } = this.props;
-    console.log(data);
-    return (
+    return loading ? (
+      <View style={styles.loader}>
+        <Loader />
+      </View>
+    ) : (
       <Session
         event={this.props.route.params.event}
         speaker={data}
