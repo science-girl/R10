@@ -1,8 +1,9 @@
 import React from "react";
-import { View, Text, ScrollView, Image, Button } from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import Linking from "Linking";
 import PropTypes from "prop-types";
+import GradientButton from "../../components/GradientButton";
 import { closeIcon } from "../../lib/platformHelpers";
 import { styles } from "./styles";
 import { closeSpeakerScene } from "../../lib/navigationHelpers";
@@ -30,12 +31,15 @@ const Speaker = ({ speaker }) => {
         <Text style={styles.speakerName}>{speaker.name}</Text>
 
         <Text style={styles.paragraphText}>{speaker.bio}</Text>
-        <Button
-          title="Read More on Wikipedia"
-          onPress={() => {
-            Linking.openURL(speaker.url);
-          }}
-        />
+        <View>
+          <TouchableOpacity
+            onPress={() => {
+              Linking.openURL(speaker.url);
+            }}
+          >
+            <GradientButton buttonText={"Read More on Wikipedia"} />
+          </TouchableOpacity>
+        </View>
       </View>
     </ScrollView>
   );

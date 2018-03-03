@@ -24,13 +24,6 @@ class AboutContainer extends Component {
     }
   };
 
-  componentWillUpdate() {
-    // const animation = LayoutAnimation.create(500, "easeInEaseOut", "opacity");
-    // LayoutAnimation.configureNext(animation, () =>
-    //   this.setState({ opened: false })
-    // );
-  }
-
   componentDidMount() {
     this.props.dispatch(fetchCodeOfConduct());
   }

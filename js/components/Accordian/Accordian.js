@@ -17,7 +17,7 @@ class Accordian extends Component {
     this._onPress = this._onPress.bind(this);
   }
   _onPress() {
-    LayoutAnimation.spring();
+    LayoutAnimation.easeInEaseOut();
     this.setState({ opened: !this.state.opened });
   }
   render() {

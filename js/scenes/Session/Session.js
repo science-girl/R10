@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-  Button
-} from "react-native";
+import { Text, View, ScrollView, Image, TouchableOpacity } from "react-native";
+import GradientButton from "../../components/GradientButton";
 import PropTypes from "prop-types";
 import FaveIcon from "../../components/FaveIcon";
 import moment from "moment";
@@ -48,12 +42,17 @@ const Session = ({ event, speaker, faves, toggleFave }) => {
         </View>
       )}
       <View>
-        <Button
-          title={faves.includes(event.session_id) ? "Remove Fave" : "Add Fave"}
+        <TouchableOpacity
           onPress={() =>
             toggleFave(event.session_id, !faves.includes(event.session_id))
           }
-        />
+        >
+          <GradientButton
+            buttonText={
+              faves.includes(event.session_id) ? "Remove Fave" : "Add Fave"
+            }
+          />
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
