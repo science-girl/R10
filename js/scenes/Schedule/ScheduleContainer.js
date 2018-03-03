@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { ScrollView, View, Image, Text, ActivityIndicator } from "react-native";
-//TODO: import PropTypes from 'prop-types';
+import { View } from "react-native";
+import PropTypes from "prop-types";
 import Schedule from "./Schedule";
-import { formatSessionData, formatAndFilterFaves } from "../../lib/helpers";
+import { formatSessionData } from "../../lib/helpers";
 import { fetchSchedule } from "../../redux/modules/schedule";
 import { fetchFaves } from "../../redux/modules/faves";
 import { connect } from "react-redux";
@@ -48,5 +48,12 @@ const mapStateToProps = state => ({
   data: state.schedule.data,
   faves: state.faves.faves
 });
+
+ScheduleContainer.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  data: PropTypes.array.isRequired,
+  faves: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps)(ScheduleContainer);

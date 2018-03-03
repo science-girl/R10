@@ -1,5 +1,5 @@
 import React from "react";
-//import PropTypes from 'proptypes';
+import PropTypes from "prop-types";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 
@@ -12,4 +12,8 @@ const About = ({ header, description }) => {
   );
 };
 
+About.propTypes = {
+  header: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+};
 export default About;

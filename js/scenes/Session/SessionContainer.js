@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Session from "./Session";
 import Loader from "../../components/Loader";
 import HeaderGradient from "../../components/HeaderGradient";
-import { popScene } from "../../lib/navigationHelpers";
+import PropTypes from "prop-types";
 import { View } from "react-native";
 import { connect } from "react-redux";
 import { fetchSpeaker } from "../../redux/modules/speaker";
@@ -25,7 +25,7 @@ class SessionContainer extends Component {
     this.props.dispatch(fetchSpeaker(this.props.route.params.event.speaker));
   }
   render() {
-    const { loading, data, faves, toggleFave } = this.props;
+    const { loading, data, faves } = this.props;
     return loading ? (
       <View style={styles.loader}>
         <Loader />
@@ -46,5 +46,13 @@ const mapStateToProps = state => ({
   data: state.speaker.data,
   faves: state.faves.faves
 });
+
+SessionContainer.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  faves: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  route: PropTypes.object.isRequired
+};
 
 export default connect(mapStateToProps)(SessionContainer);

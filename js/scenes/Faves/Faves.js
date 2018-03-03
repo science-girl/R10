@@ -1,8 +1,7 @@
 import React from "react";
-//import PropTypes from 'proptypes';
+import PropTypes from "prop-types";
 import EventList from "../../components/EventList";
-import { Text, View } from "react-native";
-import { styles } from "./styles";
+import { View } from "react-native";
 
 const Faves = ({ data, faves }) => {
   return (
@@ -10,6 +9,11 @@ const Faves = ({ data, faves }) => {
       <EventList faves={faves} data={data} />
     </View>
   );
+};
+
+Faves.propTypes = {
+  data: PropTypes.array.isRequired,
+  faves: PropTypes.array.isRequired
 };
 
 export default Faves;

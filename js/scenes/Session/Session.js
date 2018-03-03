@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Button
 } from "react-native";
+import PropTypes from "prop-types";
 import FaveIcon from "../../components/FaveIcon";
 import moment from "moment";
 import { toggleFave } from "../../redux/modules/faves";
@@ -67,5 +68,12 @@ const mapDispatchToProps = dispatch => ({
     dispatch(toggleFave(session_id, onOrOff));
   }
 });
+
+Session.propTypes = {
+  faves: PropTypes.array.isRequired,
+  toggleFave: PropTypes.func.isRequired,
+  event: PropTypes.object.isRequired,
+  speaker: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Session);

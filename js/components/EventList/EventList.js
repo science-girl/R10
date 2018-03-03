@@ -3,10 +3,8 @@ import { View, Text, SectionList, TouchableOpacity } from "react-native";
 import moment from "moment";
 import FaveIcon from "../../components/FaveIcon";
 import { styles } from "./styles";
-import { colors } from "../../config/styles";
 import { goToSession } from "../../lib/navigationHelpers";
-import { createFave } from "../../config/models";
-
+import PropTypes from "prop-types";
 const EventList = ({ data, faves }) => (
   <SectionList
     stickySectionHeadersEnabled={false}
@@ -32,4 +30,8 @@ const EventList = ({ data, faves }) => (
   />
 );
 
+EventList.propTypes = {
+  data: PropTypes.array.isRequired,
+  faves: PropTypes.array.isRequired
+};
 export default EventList;

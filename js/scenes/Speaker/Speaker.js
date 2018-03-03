@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, ScrollView, Platform, Image, Button } from "react-native";
+import { View, Text, ScrollView, Image, Button } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import Linking from "Linking";
+import PropTypes from "prop-types";
 import { closeIcon } from "../../lib/platformHelpers";
 import { styles } from "./styles";
 import { closeSpeakerScene } from "../../lib/navigationHelpers";
@@ -40,6 +41,10 @@ const Speaker = ({ speaker }) => {
       </View>
     </ScrollView>
   );
+};
+
+Speaker.propTypes = {
+  speaker: PropTypes.object.isRequired
 };
 
 export default Speaker;
