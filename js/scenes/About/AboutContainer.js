@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { ScrollView, View, Image, Text, LayoutAnimation } from "react-native";
+import { ScrollView, View, Image, Text } from "react-native";
 import PropTypes from "prop-types";
-import About from "./About";
 import logo from "../../assets/images/r10_logo.png";
 import { styles } from "./styles";
 import { connect } from "react-redux";
@@ -10,16 +9,11 @@ import { typography } from "../../config/styles";
 import Footer from "../../components/Footer";
 import Loader from "../../components/Loader";
 import HeaderGradient from "../../components/HeaderGradient";
+import Accordian from "../../components/Accordian";
 
 class AboutContainer extends Component {
   constructor() {
     super();
-    this.state = {
-      exitEnded: false,
-      opened: false,
-      currentItem: 0
-    };
-    this._onPress = this._onPress.bind(this);
   }
   static route = {
     navigationBar: {
@@ -31,17 +25,10 @@ class AboutContainer extends Component {
   };
 
   componentWillUpdate() {
-    const animation = LayoutAnimation.create(500, "easeInEaseOut", "opacity");
-    LayoutAnimation.configureNext(animation, () =>
-      this.setState({ exitEnded: true })
-    );
-  }
-
-  _onPress() {
-    if (this.state.opened) {
-      this.setState({ opened: false, exitEnded: false });
-    }
-    this.setState({ opened: true });
+    // const animation = LayoutAnimation.create(500, "easeInEaseOut", "opacity");
+    // LayoutAnimation.configureNext(animation, () =>
+    //   this.setState({ opened: false })
+    // );
   }
 
   componentDidMount() {
@@ -50,7 +37,6 @@ class AboutContainer extends Component {
 
   render() {
     const { loading, data } = this.props;
-    const { opened, exitEnded } = this.state;
 
     return loading ? (
       <View style={styles.loader}>
@@ -81,13 +67,11 @@ class AboutContainer extends Component {
         </View>
         {data.map((text, i) => {
           return (
-            opened && (
-              <About
-                key={i}
-                header={text.title}
-                description={text.description}
-              />
-            )
+            <Accordian
+              key={i}
+              title={text.title}
+              description={text.description}
+            />
           );
         })}
         <Footer />
