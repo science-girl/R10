@@ -6,14 +6,18 @@ import logo from "../../assets/images/r10_logo.png";
 import { styles } from "./styles";
 import { connect } from "react-redux";
 import { fetchCodeOfConduct } from "../../redux/modules/about";
+import { typography } from "../../config/styles";
 import Footer from "../../components/Footer";
 import Loader from "../../components/Loader";
+import HeaderGradient from "../../components/HeaderGradient";
 
 class AboutContainer extends Component {
   static route = {
     navigationBar: {
       title: "About",
-      tintColor: "black"
+      tintColor: "black",
+      titleStyle: { fontFamily: typography.fontMain },
+      renderBackground: HeaderGradient
     }
   };
 

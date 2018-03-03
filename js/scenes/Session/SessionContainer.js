@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Session from "./Session";
 import Loader from "../../components/Loader";
+import HeaderGradient from "../../components/HeaderGradient";
 import { popScene } from "../../lib/navigationHelpers";
 import { View } from "react-native";
 import { connect } from "react-redux";
@@ -11,13 +12,13 @@ import { typography } from "../../config/styles";
 class SessionContainer extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
   static route = {
     navigationBar: {
       title: "Session",
       tintColor: "black",
-      titleStyle: { fontFamily: typography.fontMain }
+      titleStyle: { fontFamily: typography.fontMain },
+      renderBackground: HeaderGradient
     }
   };
   componentDidMount() {

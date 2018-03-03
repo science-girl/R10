@@ -9,6 +9,7 @@ import { popScene } from "../../lib/navigationHelpers";
 import { styles } from "./styles";
 import { fetchFaves } from "../../redux/modules/faves";
 import { connect } from "react-redux";
+import HeaderGradient from "../../components/HeaderGradient";
 
 class FavesContainer extends Component {
   constructor() {
@@ -19,7 +20,8 @@ class FavesContainer extends Component {
     navigationBar: {
       title: "Faves",
       tintColor: "black",
-      titleStyle: { fontFamily: typography.fontMain }
+      titleStyle: { fontFamily: typography.fontMain },
+      renderBackground: HeaderGradient
     }
   };
   componentDidMount() {

@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { styles } from "./styles";
 import { typography } from "../../config/styles";
 import Loader from "../../components/Loader";
+import HeaderGradient from "../../components/HeaderGradient";
 
 class ScheduleContainer extends Component {
   constructor() {
@@ -18,7 +19,8 @@ class ScheduleContainer extends Component {
     navigationBar: {
       title: "Schedule",
       tintColor: "black",
-      titleStyle: { fontFamily: typography.fontMain }
+      titleStyle: { fontFamily: typography.fontMain },
+      renderBackground: HeaderGradient
     }
   };
 
