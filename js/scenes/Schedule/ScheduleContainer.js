@@ -7,6 +7,7 @@ import { fetchSchedule } from "../../redux/modules/schedule";
 import { fetchFaves } from "../../redux/modules/faves";
 import { connect } from "react-redux";
 import { styles } from "./styles";
+import { typography } from "../../config/styles";
 import Loader from "../../components/Loader";
 
 class ScheduleContainer extends Component {
@@ -16,7 +17,8 @@ class ScheduleContainer extends Component {
   static route = {
     navigationBar: {
       title: "Schedule",
-      tintColor: "black"
+      tintColor: "black",
+      titleStyle: { fontFamily: typography.fontMain }
     }
   };
 

@@ -3,6 +3,7 @@ import { ScrollView, View, Image, Text, ActivityIndicator } from "react-native";
 //TODO: import PropTypes from 'prop-types';
 import Faves from "./Faves";
 import logo from "../../assets/images/r10_logo.png";
+import { typography } from "../../config/styles";
 import { formatAndFilterFaves } from "../../lib/helpers";
 import { popScene } from "../../lib/navigationHelpers";
 import { styles } from "./styles";
@@ -17,7 +18,8 @@ class FavesContainer extends Component {
   static route = {
     navigationBar: {
       title: "Faves",
-      tintColor: "black"
+      tintColor: "black",
+      titleStyle: { fontFamily: typography.fontMain }
     }
   };
   componentDidMount() {

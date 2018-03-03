@@ -12,6 +12,7 @@
     "moment": "^2.20.1",
     "react": "16.2.0",
     "react-native": "0.53.3",
+    "react-native-linear-gradient": "^2.4.0",
     "react-native-vector-icons": "^4.5.0",
     "react-redux": "^5.0.7",
     "realm": "^2.2.12",
@@ -19,8 +20,12 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "babel-jest": "22.4.1",
     "babel-preset-react-native": "4.0.0",
+    "eslint": "^4.18.2",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-react-native": "^3.2.1",
     "jest": "22.4.2",
     "react-test-renderer": "16.2.0"
   },

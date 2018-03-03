@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView, Platform, Image, Button } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import Linking from "Linking";
 import { closeIcon } from "../../lib/platformHelpers";
 import { styles } from "./styles";
 import { closeSpeakerScene } from "../../lib/navigationHelpers";
@@ -28,7 +29,14 @@ const Speaker = ({ speaker }) => {
         <Text style={styles.speakerName}>{speaker.name}</Text>
 
         <Text style={styles.paragraphText}>{speaker.bio}</Text>
-        <Button title="Read More on Wikipedia" />
+        <Button
+          title="Read More on Wikipedia"
+          onPress={() => {
+            Linking.openURL(speaker.url).catch(err =>
+              console.error("An error occurred", err)
+            );
+          }}
+        />
       </View>
     </ScrollView>
   );

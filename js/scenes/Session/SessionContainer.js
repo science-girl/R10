@@ -6,6 +6,7 @@ import { View } from "react-native";
 import { connect } from "react-redux";
 import { fetchSpeaker } from "../../redux/modules/speaker";
 import { styles } from "./styles";
+import { typography } from "../../config/styles";
 
 class SessionContainer extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class SessionContainer extends Component {
   static route = {
     navigationBar: {
       title: "Session",
-      tintColor: "black"
+      tintColor: "black",
+      titleStyle: { fontFamily: typography.fontMain }
     }
   };
   componentDidMount() {
