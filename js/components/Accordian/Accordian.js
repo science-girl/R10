@@ -4,7 +4,9 @@ import {
   Text,
   TouchableOpacity,
   LayoutAnimation,
-  Animated
+  Animated,
+  Platform,
+  UIManager
 } from "react-native";
 import { styles } from "./styles";
 
@@ -14,6 +16,11 @@ class Accordian extends Component {
     this.state = {
       opened: false
     };
+
+    if (Platform.OS === "android") {
+      UIManager.setLayoutAnimationEnabledExperimental &&
+        UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
     this._onPress = this._onPress.bind(this);
   }
   _onPress() {
