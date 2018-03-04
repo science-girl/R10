@@ -7,7 +7,7 @@ Mobile app for android and ios for a fictional development conference called R10
 
 ### Screenshot
 
-![R10-ios Screenshot](R10-ios.png)
+![R10-android Screenshot](R10-android.png)
 
 ## Technologies
 
