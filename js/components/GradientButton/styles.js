@@ -10,11 +10,8 @@ export const styles = StyleSheet.create({
     //marginLeft: 40
   },
   buttonText: {
-    marginLeft: 50,
-    marginTop: 10,
     color: colors.White,
     fontFamily: typography.fontMain,
-    fontWeight: "bold",
-    fontSize: 15
+    fontWeight: "bold"
   }
 });

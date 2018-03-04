@@ -38,5 +38,9 @@ export const styles = StyleSheet.create({
   paragraphText: {
     fontFamily: typography.fontMainLight,
     color: colors.MediumGrey
+  },
+  buttonView: {
+    marginTop: 20,
+    marginLeft: 20
   }
 });

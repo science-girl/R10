@@ -41,7 +41,7 @@ const Session = ({ event, speaker, faves, toggleFave }) => {
           </TouchableOpacity>
         </View>
       )}
-      <View>
+      <View style={{ marginLeft: 50 }}>
         <TouchableOpacity
           onPress={() =>
             toggleFave(event.session_id, !faves.includes(event.session_id))
@@ -51,6 +51,9 @@ const Session = ({ event, speaker, faves, toggleFave }) => {
             buttonText={
               faves.includes(event.session_id) ? "Remove Fave" : "Add Fave"
             }
+            marginTop={15}
+            marginLeft={50}
+            fontSize={15}
           />
         </TouchableOpacity>
       </View>

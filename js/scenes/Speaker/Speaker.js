@@ -31,13 +31,18 @@ const Speaker = ({ speaker }) => {
         <Text style={styles.speakerName}>{speaker.name}</Text>
 
         <Text style={styles.paragraphText}>{speaker.bio}</Text>
-        <View>
+        <View style={styles.buttonView}>
           <TouchableOpacity
             onPress={() => {
               Linking.openURL(speaker.url);
             }}
           >
-            <GradientButton buttonText={"Read More on Wikipedia"} />
+            <GradientButton
+              buttonText={"Read More on Wikipedia"}
+              marginTop={15}
+              marginLeft={20}
+              fontSize={12}
+            />
           </TouchableOpacity>
         </View>
       </View>
