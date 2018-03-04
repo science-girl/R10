@@ -6,7 +6,7 @@ React-Native application.
 
 ### Screenshot
 
-![R10-ios Screenshot](R10-ios.png)
+![R10-android Screenshot](R10-android.png)
 
 ## Technologies
 
