@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { View, Text } from "react-native";
 import { Router } from "./routes";
 import {
   StackNavigation,
@@ -11,7 +11,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { heartIcon, aboutIcon, calendarIcon } from "../lib/platformHelpers";
 import { styles } from "./styles";
 
-const { Black, White, MediumGrey, Purple } = colors;
+const { MediumGrey, Purple } = colors;
 
 // Treat the DrawerNavigationLayout route like any other route -- you may want to set
 // it as the intiial route for a top-level StackNavigation

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Text } from "react-native";
+import { Text } from "react-native";
 import { heartIcon, aboutIcon, calendarIcon } from "../lib/platformHelpers";
 import {
   StackNavigation,
@@ -7,7 +7,7 @@ import {
   TabNavigationItem as TabItem
 } from "@expo/ex-navigation";
 import { Router } from "./routes";
-import { colors, typography } from "../config/styles";
+import { colors } from "../config/styles";
 import Icon from "react-native-vector-icons/Ionicons";
 import { styles } from "./styles";
 
